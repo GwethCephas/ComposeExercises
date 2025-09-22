@@ -56,13 +56,13 @@ fun ActionListItem(
                 Text(
                     text = text,
                     fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                 )
                 Text(
                     text = description,
                     fontSize = MaterialTheme.typography.titleMedium.fontSize,
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Normal,
                     modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                 )
 

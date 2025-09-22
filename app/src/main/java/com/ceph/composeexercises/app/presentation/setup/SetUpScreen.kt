@@ -88,14 +88,14 @@ fun SetUpScreen(
                 )
 
             Spacer(modifier = Modifier.weight(0.75f))
-            Button(
-                onClick = {
 
-                },
+            Button(
+                onClick = {},
                 modifier = Modifier
                     .fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF0097A7)
+                    containerColor = Color(0xFF0097A7),
+                    contentColor = Color.White
                 )
             ) {
                 Text(text = "Skip for now")

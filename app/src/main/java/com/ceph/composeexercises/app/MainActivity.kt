@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.navigation.compose.rememberNavController
 import com.ceph.composeexercises.app.presentation.navigation.NavHostSetUp
+import com.ceph.composeexercises.app.presentation.passcode.PasscodeViewModel
 import com.ceph.composeexercises.app.ui.theme.ComposeExercisesTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,8 +16,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposeExercisesTheme {
+                val viewModel by viewModels<PasscodeViewModel>()
                 val navController = rememberNavController()
-                NavHostSetUp(navController)
+                NavHostSetUp(
+                    navController = navController,
+                    viewModel = viewModel
+                )
 
             }
         }
