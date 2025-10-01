@@ -1,54 +1,61 @@
-Compose Exercise – Setup & Passcode Screens
+🚀 Compose Exercise – Setup & Passcode Screens
 
-This is a simple Jetpack Compose exercise that demonstrates a setup flow with a responsive UI.
+This is a simple Jetpack Compose exercise showcasing a setup flow with clean UI and responsive state handling.
 
-Features
+✨ Features
 
-A Setup Screen with multiple onboarding options.
+📱 Setup Screen with multiple onboarding options
 
-Clicking the “Set up a pin” card navigates to the Create Passcode Screen.
+🔐 Clicking “Set up a pin” navigates to the Create Passcode Screen
 
-The Create Passcode Screen showcases a 4-digit passcode input layout.
+🔢 Passcode Screen with a 4-digit input layout & keypad
 
-The screen is responsive with state changes when interacting with the keypad and buttons.
+⚡ Responsive UI state changes when interacting with keypad & button
 
-Note: This is only a UI showcase – it does not actually persist or verify the passcode.
+❌ This is only a UI showcase – no real passcode logic or persistence
 
-Screenshots
-<p align="center"> <img src="https://github.com/GwethCephas/Fintrack/blob/main/C.E.Setup.jpg?raw=true" alt="Setup Screen" width="300"/> <img src="https://github.com/GwethCephas/Fintrack/blob/main/C.E.Passcode.jpg?raw=true" alt="Passcode Screen" width="300"/> </p>
-Tech Stack
+🖼️ Screenshots
+<p align="center"> <img src="https://github.com/GwethCephas/Fintrack/blob/main/C.E.Setup.jpg?raw=true" alt="Setup Screen" width="300" style="margin-right:20px;"/> <img src="https://github.com/GwethCephas/Fintrack/blob/main/C.E.Passcode.jpg?raw=true" alt="Passcode Screen" width="300"/> </p>
+🛠 Tech Stack
 
-Kotlin
+🟣 Kotlin
 
-Jetpack Compose
+🎨 Jetpack Compose
 
-Material3 for styling
+🧩 Material3 for UI styling
 
-State management with remember and mutableStateOf
+🔄 State management with remember + mutableStateOf
 
-How it works
+⚙️ How it Works
 
-Setup Screen displays three onboarding options:
+Setup Screen shows 3 onboarding options:
 
-Set up a pin
+✅ Set up a pin
 
-Link your bank accounts
+💳 Link your bank accounts
 
-Create your savings goal
+🎯 Create your savings goal
 
-The first card (“Set up a pin”) is clickable.
+👉 Only the first card is clickable.
 
-On clicking the first card, navigation takes the user to the Create Passcode Screen.
+Clicking “Set up a pin” ➝ Navigates to the Passcode Screen
 
-Create Passcode Screen:
+Passcode Screen:
 
-Shows four empty boxes for the pin.
+Shows 4 input boxes for the PIN
 
-Numeric keypad below to simulate input.
+Includes a numeric keypad for simulation
 
-Button updates UI state but does not set up a real PIN.
+A button updates UI state but does not actually set a PIN
 
-Purpose
+🎯 Purpose
 
-This exercise is only meant to showcase basic navigation, UI design, and state responsiveness in Jetpack Compose.
-It is not a full authentication or pin management implementation.
+This project is meant to demonstrate:
+
+✅ Basic navigation between screens
+
+✅ UI responsiveness in Compose
+
+✅ State-driven layouts
+
+It is not a complete authentication flow – just a showcase exercise.
