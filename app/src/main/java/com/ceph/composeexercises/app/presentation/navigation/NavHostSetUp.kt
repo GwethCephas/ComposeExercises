@@ -1,30 +1,36 @@
 package com.ceph.composeexercises.app.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.ceph.composeexercises.app.presentation.passcode.PasscodeScreen
 import com.ceph.composeexercises.app.presentation.passcode.PasscodeViewModel
 import com.ceph.composeexercises.app.presentation.setup.SetUpScreen
 
 @Composable
 fun NavHostSetUp(
-    navController: NavHostController,
     viewModel: PasscodeViewModel
 ) {
+
+    val navController = rememberNavController()
 
     NavHost(
         navController = navController,
         startDestination = NavRoutes.SetUp.route
     ) {
         composable(NavRoutes.SetUp.route) {
-            SetUpScreen(navController)
+            SetUpScreen(
+                onNavigateToPasscodeScreen = {
+                    navController.navigate(NavRoutes.Passcode.route)
+                }
+            )
         }
         composable(NavRoutes.Passcode.route) {
             PasscodeScreen(
-                navController = navController,
+                onBackClick = {
+                    navController.navigateUp()
+                },
                 viewModel = viewModel
             )
 

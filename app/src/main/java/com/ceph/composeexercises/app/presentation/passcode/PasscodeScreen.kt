@@ -33,12 +33,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PasscodeScreen(
-    navController: NavHostController,
+    onBackClick: () -> Unit,
     viewModel: PasscodeViewModel
 ) {
 
@@ -58,7 +57,7 @@ fun PasscodeScreen(
                 navigationIcon = {
                     IconButton(
                         onClick = {
-                            navController.navigateUp()
+                            onBackClick()
                         }
                     ) {
                         Icon(

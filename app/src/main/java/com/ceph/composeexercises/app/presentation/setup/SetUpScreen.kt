@@ -21,14 +21,12 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.ceph.composeexercises.R
 import com.ceph.composeexercises.app.presentation.components.ActionListItem
-import com.ceph.composeexercises.app.presentation.navigation.NavRoutes
 
 @Composable
 fun SetUpScreen(
-    navController: NavHostController
+    onNavigateToPasscodeScreen: () -> Unit
 ) {
 
     Scaffold(
@@ -68,7 +66,7 @@ fun SetUpScreen(
                 description = "Enhance your account security.",
                 painter = painterResource(R.drawable.account_setup_1),
                 onClick = {
-                    navController.navigate(NavRoutes.Passcode.route)
+                    onNavigateToPasscodeScreen()
                 },
             )
             ActionListItem(
