@@ -7,13 +7,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
@@ -23,13 +23,13 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,7 +42,8 @@ fun CardItem(
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(8.dp)
+            .height(145.dp),
         shape = RoundedCornerShape(15.dp),
         colors = CardDefaults.cardColors(
             containerColor = cardInfo.cardContainerColor
@@ -59,7 +60,7 @@ fun CardItem(
                             width = 125.dp, height = 98.dp
                         )
                     )
-                    .offset(y = 40.dp),
+                    .offset(y = 30.dp),
                 painter = cardInfo.cardImage,
                 contentDescription = null,
             )
@@ -92,14 +93,14 @@ fun CardItem(
                     ) {
                         Text(
                             text = cardInfo.actionButtonText,
-                            color = cardInfo.cardContainerColor,
+                            color = cardInfo.actionButtonContentColor,
                             fontSize = 10.sp
                         )
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
                             contentDescription = null,
-                            tint = cardInfo.cardContainerColor,
-                            modifier = modifier.size(16.dp)
+                            tint = cardInfo.actionButtonContentColor,
+                            modifier = modifier.size(12.dp)
                         )
                     }
                 }
@@ -125,25 +126,32 @@ fun CardItem(
                     )
 
                 }
-                Text(
-                    modifier = modifier.fillMaxWidth(),
-                    text = cardInfo.description,
-                    color = cardInfo.cardContentColor,
-                    fontSize = 12.sp
-                )
-                Spacer(modifier = Modifier.height(24.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Start,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = cardInfo.description,
+                        color = cardInfo.cardContentColor,
+                        fontSize = 12.sp,
+                        modifier = Modifier
+                            .fillMaxWidth(0.85f)
+                            .wrapContentHeight()
+                    )
+                }
+                Spacer(modifier = Modifier.height(5.dp))
 
                 cardInfo.progress?.let { progressValue ->
                     LinearProgressIndicator(
                         progress = { progressValue },
                         modifier = Modifier
-                            .padding(top = 4.dp)
                             .width(330.dp)
                             .height(4.dp)
                             .clip(RoundedCornerShape(50)),
                         color = cardInfo.progressIndicatorColor!!,
                         trackColor = cardInfo.trackColor!!,
-                        strokeCap = ProgressIndicatorDefaults.LinearStrokeCap,
+                        strokeCap = StrokeCap.Butt
                     )
                 }
 

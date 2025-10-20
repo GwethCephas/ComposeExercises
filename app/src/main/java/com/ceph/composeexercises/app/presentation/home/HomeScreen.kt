@@ -76,7 +76,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             cardImage = painterResource(R.drawable.piggy_bank_2),
             progress = 0.75f,
             progressIndicatorColor = Color(0xFFFAFAFA),
-            trackColor = Color(0xFFFF952B).copy(alpha = 0.2f)
+            trackColor = Color(0xFFFAFAFA).copy(alpha = 0.5f)
 
         ),
         CardInfo(
